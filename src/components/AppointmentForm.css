@@ -1,0 +1,40 @@
+/* Add this CSS to your styles */
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-label {
+    position: absolute;
+    left: 12px; /* Adjust this value as needed */
+    top: 16px; /* Adjust this value as needed */
+    transition: all 0.2s ease-in-out;
+    color: gray;
+    pointer-events: none;
+  }
+  
+  .input-field {
+    padding: 20px 12px 5px; /* Ensure enough padding for the label */
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 0.375rem; /* Rounded corners */
+    width: 100%;
+    outline: none; /* Remove default outline */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
+  }
+  
+  /* Focus state */
+  .input-field:focus {
+    border-color: #3b82f6; /* Tailwind's blue-500 */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); /* Highlight effect */
+  }
+  
+  /* Float label when input is focused or has a value */
+  .input-field:focus + .input-label,
+  .input-field:not(:placeholder-shown) + .input-label {
+    top: -8px; /* Move label up */
+    left: 12px; /* Keep label in place */
+    font-size: 12px; /* Smaller font size for the label */
+    color: #3b82f6; /* Change label color */
+  }
+  
