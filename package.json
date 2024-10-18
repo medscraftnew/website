@@ -4,10 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "serve": "serve -s dist",
+    "build-stage": "env-cmd -f .env.qa vite build",
+    "preview": "vite preview",
+    "lint": "eslint \"src//*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint --fix \"src//*.{js,jsx,ts,tsx}\"",
+    "prettier": "prettier --write \"src//*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
     "@headlessui/react": "^2.1.10",
