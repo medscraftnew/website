@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "@/assets/Logo/Logo.png";
+import BookATestButton from "@/components/ui/BookaTestButton";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,14 +83,14 @@ const Header = () => {
             } ${isMenuOpen ? "bg-white" : ""} md:bg-transparent`} // Apply bg-white when menu is open in mobile view
             id="navbar-cta"
           >
-            <ul className="flex font-primary flex-col text-xl font-medium p-4 md:p-0 mt-4 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col items-center text-md font-medium p-4 md:p-0 mt-4 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <NavLink
                   to="/"
                   onClick={closeMenu} // Close menu on click
                   className={({ isActive }) =>
                     isActive
-                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
                       : "block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                   }
                   aria-current="page"
@@ -103,7 +104,7 @@ const Header = () => {
                   onClick={closeMenu} // Close menu on click
                   className={({ isActive }) =>
                     isActive
-                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
                       : "block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                   }
                   aria-current="page"
@@ -117,11 +118,25 @@ const Header = () => {
                   onClick={closeMenu}
                   className={({ isActive }) =>
                     isActive
-                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
                       : "block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                   }
                 >
                   Our Services
+                </NavLink>
+              </li>
+              
+              <li>
+                <NavLink
+                  to="/CreateAbha"
+                  onClick={closeMenu} // Close menu on click
+                  className={({ isActive }) =>
+                    isActive
+                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
+                      : "block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  }
+                >
+                  Create ABHA Card
                 </NavLink>
               </li>
               <li>
@@ -130,32 +145,22 @@ const Header = () => {
                   onClick={closeMenu} // Close menu on click
                   className={({ isActive }) =>
                     isActive
-                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
                       : "block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                   }
                 >
                   Contact Us
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/CreateAbha"
-                  onClick={closeMenu} // Close menu on click
-                  className={({ isActive }) =>
-                    isActive
-                      ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-                      : "block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                  }
-                >
-                  Create ABHA Card
-                </NavLink>
-              </li>
+              {/* <li>
+                <BookATestButton />
+              </li> */}
             </ul>
           </div>
         </div>
       </nav>
     </>
-  );
+  );  
 };
 
 export default Header;

@@ -115,7 +115,7 @@ export default function AppointmentForm() {
                       id="name"
                       name="name"
                       type="text"
-                      placeholder="David John"
+                      placeholder="Your Name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
@@ -135,7 +135,7 @@ export default function AppointmentForm() {
                       id="mobileNumber"
                       name="mobileNumber"
                       type="tel"
-                      placeholder="(123) 456 - 789"
+                      placeholder="Mobile Number"
                       value={formData.mobileNumber}
                       onChange={handleInputChange}
                       required
@@ -155,7 +155,7 @@ export default function AppointmentForm() {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="example@mail.com"
+                      placeholder="Your Email"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
@@ -174,8 +174,8 @@ export default function AppointmentForm() {
                     <input
                       id="age"
                       name="age"
-                      type="number"
-                      placeholder="24"
+                      type="text"
+                      placeholder="Your Age"
                       value={formData.age}
                       onChange={handleInputChange}
                       required
@@ -188,7 +188,7 @@ export default function AppointmentForm() {
                       htmlFor="gender"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Select your gender
+                      Select your Gender
                     </label>
                     <select
                       id="gender"
@@ -198,7 +198,7 @@ export default function AppointmentForm() {
                       required
                       className="mt-1 block w-full py-3 px-4 sm:py-4 sm:px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
                     >
-                      <option value="">Select</option>
+                      <option value="">Select your Gender</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Other">Other</option>
@@ -224,10 +224,8 @@ export default function AppointmentForm() {
                       className="appearance-none block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200 pr-10 mt-2"
                     >
                       <option value="">Select Location</option>
-                      <option value="Coimbatore">Coimbatore</option>
-                      <option value="Chennai">Chennai</option>
                       <option value="Bangalore">Bangalore</option>
-                      <option value="Hyderabad">Hyderabad</option>
+                      <option value="Hyderabad">Gurugram</option>
                     </select>
                   </div>
                   <div className="space-y-2">
@@ -241,7 +239,7 @@ export default function AppointmentForm() {
                       id="area"
                       name="area"
                       type="text"
-                      placeholder="Enter Your Area"
+                      placeholder="Your Area"
                       value={formData.area}
                       onChange={handleInputChange}
                       required
@@ -289,7 +287,7 @@ export default function AppointmentForm() {
                         id="familyMemberName"
                         name="familyMemberName"
                         type="text"
-                        placeholder="John Doe"
+                        placeholder="Family Member Name"
                         value={formData.familyMemberName}
                         onChange={handleInputChange}
                         required
@@ -309,7 +307,7 @@ export default function AppointmentForm() {
                         id="familyMemberAge"
                         name="familyMemberAge"
                         type="number"
-                        placeholder="45"
+                        placeholder="Family Member Age"
                         value={formData.familyMemberAge}
                         onChange={handleInputChange}
                         required
@@ -333,7 +331,7 @@ export default function AppointmentForm() {
                         required
                         className="mt-1 block w-full py-3 px-4 sm:py-4 sm:px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
                       >
-                        <option value="">Select</option>
+                        <option value="">Select Your Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>

@@ -4,7 +4,7 @@ import "./FloatingCallIcon.css";
 const FloatingCallIcon = () => {
   return (
     <a
-      href="tel:+1234567890"
+      href="tel:+918088435500"
       className="fixed bottom-6 right-6 z-50 sm:hidden"
     >
       <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center animate-glow">

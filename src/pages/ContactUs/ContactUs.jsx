@@ -1,5 +1,5 @@
 import React from "react";
-import BannerImg from "../../assets/ContactUs_banner_img.png";
+import BannerImg from "../../assets/contact_us.png";
 import ContactUsDoctorImg from "../../assets/DoctorImages/ContactUsDoctorImg.jpg";
 import ContactUsForm from "@/components/ContactUsForm";
 import { FaLocationDot } from "react-icons/fa6";
@@ -56,38 +56,39 @@ const ContactUs = () => {
 
         <div className="container mx-auto lg:px-[130px] md:px-[60px] px-6 pt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700">
           {/* Address Card */}
-          <div className="card bg-blue-400 p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 text-white">
-            <h5 className="font-bold text-lg mb-2 flex items-center gap-4">
+          <div className="card bg-blue-800 p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 text-white">
+            <h5 className="font-bold text-xl mb-2 flex items-center justify-center gap-4">
               <span>
                 <FaLocationDot />
               </span>
               Address
             </h5>
-            <p className="text-sm">
-              121, Park Drive, Varick Str New York, NY 10012, USA
+            <p className="text-sm text-center">
+            Plot No.38, NTI Layout, AMCO Colony, Kodigehalli,<br/>
+            Banglore - 560092
             </p>
           </div>
 
           {/* Phone Card */}
-          <div className="card bg-blue-400 p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 text-white">
-            <h5 className="font-bold text-lg mb-2 flex items-center gap-4">
+          <div className="card bg-blue-800 p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 text-white">
+            <h5 className="font-bold text-xl mb-2 flex items-center justify-center gap-4">
               <span>
                 <FaPhone />
               </span>
               Phone
             </h5>
-            <p className="text-sm">(123) 0200 12345 &amp; 1800-45-678-9012</p>
+            <p className="text-sm text-center">+91 80884 35500</p>  
           </div>
 
           {/* Email Card */}
-          <div className="card bg-blue-400 p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 text-white">
-            <h5 className="font-bold text-lg mb-2 flex items-center gap-4">
+          <div className="card bg-blue-800 p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 text-white">
+            <h5 className="font-bold text-xl mb-2 flex items-center justify-center gap-4">
               <span>
                 <IoMdMail />
               </span>
               Email
             </h5>
-            <p className="text-sm">Mailus@hospitalteam.com</p>
+            <p className="text-sm text-center">info@medscraft.com</p>
           </div>
         </div>
 

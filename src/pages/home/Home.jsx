@@ -225,15 +225,15 @@ export default function Home() {
                 <h2 className="md:text-5xl text-3xl text-center md:text-left font-bold mb-2">
                   About Us
                 </h2>
-                <h3 className="md:text-xl lg:text-xl text-lg text-center md:text-left uppercase text-blue-600 font-semibold mb-4">
-                  PRO HEALTH
-                </h3>
+                  {/* <h3 className="md:text-xl lg:text-xl text-lg text-center md:text-left uppercase text-blue-600 font-semibold mb-4">
+                    PRO HEALTH
+                  </h3> */}
               </div>
               <div className="h-14 lg:h-18"></div>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <i className="text-blue-600 mr-2">
-                    <svg
+                    {/* <svg
                       width="30"
                       height="38"
                       viewBox="0 0 35 24"
@@ -245,17 +245,13 @@ export default function Home() {
                         d="M34.5342 13.0789L23.3977 23.5789C23.0977 23.8522 22.6958 24.0034 22.2787 23.9999C21.8615 23.9965 21.4625 23.8388 21.1675 23.5607C20.8726 23.2825 20.7053 22.9063 20.7016 22.513C20.698 22.1197 20.8584 21.7408 21.1482 21.4579L29.5689 13.5184H1.59092C1.16899 13.5184 0.764327 13.3604 0.465971 13.0791C0.167615 12.7978 0 12.4163 0 12.0184C0 11.6206 0.167615 11.2391 0.465971 10.9578C0.764327 10.6765 1.16899 10.5184 1.59092 10.5184H29.5689L21.1482 2.57893C20.9962 2.44056 20.875 2.27505 20.7916 2.09204C20.7083 1.90903 20.6644 1.7122 20.6625 1.51303C20.6607 1.31386 20.7009 1.11635 20.7809 0.932003C20.8609 0.747658 20.9791 0.580179 21.1284 0.439341C21.2778 0.298502 21.4554 0.18712 21.651 0.111698C21.8465 0.0362778 22.056 -0.00167465 22.2672 5.53131e-05C22.4785 0.00178719 22.6872 0.0431671 22.8813 0.12178C23.0754 0.200394 23.251 0.314665 23.3977 0.457932L34.5342 10.9579C34.8325 11.2392 35 11.6207 35 12.0184C35 12.4162 34.8325 12.7976 34.5342 13.0789Z"
                         fill="#307BC4"
                       ></path>
-                    </svg>
+                    </svg> */}
                   </i>
                   <div>
                     <h3 className="text-3xl font-normal text-gray-900">
-                      ProHealth is a team of experienced medical professionals
-                    </h3>
+                    A team of skilled medical professionals dedicated to exceptional healthcare.</h3>
                     <p className="m-0 pt-6 text-lg text-neutral-400">
-                      Dedicated to providing top-quality healthcare services. We
-                      believe in a holistic approach to healthcare that focuses
-                      on treating the whole person, not just the illness or
-                      symptoms.
+                    Our team of experienced medical professionals is committed to delivering top-quality healthcare services. We focus on a holistic approach that prioritizes treating the whole person—mind, body, and spirit—rather than just addressing the illness or symptoms. With personalized care and attention, we aim to enhance your overall well-being and health outcomes.
                     </p>
                   </div>
                 </li>
