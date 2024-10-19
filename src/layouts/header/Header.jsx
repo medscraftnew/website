@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   const closeMenu = () => {
-    setIsMenuOpen(false); // Close the menu
+    setIsMenuOpen(false);
   };
 
   const handleScroll = () => {
@@ -46,7 +46,11 @@ const Header = () => {
             to="/"
             className="flex flex-col items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src={Logo} className="lg:h-12 md:h-12 h-8" alt="MedsCraft Logo" />
+            <img
+              src={Logo}
+              className="lg:h-12 md:h-12 h-8"
+              alt="MedsCraft Logo"
+            />
             <span className="self-center lg:text-2xl md:text-2xl font-semibold whitespace-nowrap text-[#13A7E7] dark:text-white">
               Meds<span className="text-[#DD6F8C]">Craft</span>
             </span>
@@ -78,16 +82,16 @@ const Header = () => {
             </button>
           </div>
           <div
-            className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+            className={`items-center justify-between w-full lg:flex md:flex md:w-auto md:order-1 ${
               isMenuOpen ? "" : "hidden"
-            } ${isMenuOpen ? "bg-white" : ""} md:bg-transparent`} // Apply bg-white when menu is open in mobile view
+            } ${isMenuOpen ? "bg-white" : ""} md:bg-transparent`}
             id="navbar-cta"
           >
             <ul className="flex flex-col items-center text-md font-medium p-4 md:p-0 mt-4 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <NavLink
                   to="/"
-                  onClick={closeMenu} // Close menu on click
+                  onClick={closeMenu}
                   className={({ isActive }) =>
                     isActive
                       ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
@@ -101,7 +105,7 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/About"
-                  onClick={closeMenu} // Close menu on click
+                  onClick={closeMenu}
                   className={({ isActive }) =>
                     isActive
                       ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
@@ -125,11 +129,11 @@ const Header = () => {
                   Our Services
                 </NavLink>
               </li>
-              
+
               <li>
                 <NavLink
                   to="/CreateAbha"
-                  onClick={closeMenu} // Close menu on click
+                  onClick={closeMenu}
                   className={({ isActive }) =>
                     isActive
                       ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
@@ -142,7 +146,7 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/ContactUs"
-                  onClick={closeMenu} // Close menu on click
+                  onClick={closeMenu}
                   className={({ isActive }) =>
                     isActive
                       ? "block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 font-bold md:dark:text-blue-500"
@@ -152,15 +156,15 @@ const Header = () => {
                   Contact Us
                 </NavLink>
               </li>
-              {/* <li>
+              <div>
                 <BookATestButton />
-              </li> */}
+            </div>
             </ul>
           </div>
         </div>
       </nav>
     </>
-  );  
+  );
 };
 
 export default Header;

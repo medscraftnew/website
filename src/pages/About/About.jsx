@@ -18,25 +18,25 @@ const About = () => {
     {
       title: "Experienced Medical Professionals",
       description:
-        "Our team includes experienced doctors, nurses, and other healthcare professionals who are dedicated to providing the best possible care to our patients.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ipsa culpa tempora cumque. Mollitia fuga, pariatur molestiae labore numquam accusantium culpa, expedita eos similique laborum obcaecati asperiores magni consectetur iste? Dolore magni modi fuga ut libero? Totam, sequi dignissimos voluptate quam dolore est explicabo iure sit autem cupiditate, pariatur reiciendis tempora maiores consequuntur facilis architecto reprehenderit veritatis rerum deleniti fuga. ",
       icon: <FaAward />,
     },
     {
       title: "Comprehensive Services",
       description:
-        "We offer a wide range of healthcare services, from preventive care to specialized treatment for complex conditions.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ipsa culpa tempora cumque. Mollitia fuga, pariatur molestiae labore numquam accusantium culpa, expedita eos similique laborum obcaecati asperiores magni consectetur iste? Dolore magni modi fuga ut libero? Totam, sequi dignissimos voluptate quam dolore est explicabo iure sit autem cupiditate, pariatur reiciendis tempora maiores consequuntur facilis architecto reprehenderit veritatis rerum deleniti fuga.",
       icon: <RiServiceLine />,
     },
     {
       title: "Patient-centered Approach",
       description:
-        "We believe in treating each patient as an individual, and we take the time to understand your unique health needs and concerns.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ipsa culpa tempora cumque. Mollitia fuga, pariatur molestiae labore numquam accusantium culpa, expedita eos similique laborum obcaecati asperiores magni consectetur iste? Dolore magni modi fuga ut libero? Totam, sequi dignissimos voluptate quam dolore est explicabo iure sit autem cupiditate, pariatur reiciendis tempora maiores consequuntur facilis architecto reprehenderit veritatis rerum deleniti fuga.",
       icon: <FaUserDoctor />,
     },
     {
       title: "State-of-the-art Facilities",
       description:
-        "Our healthcare center is equipped with the latest technology and equipment to provide our patients with the most advanced care possible.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ipsa culpa tempora cumque. Mollitia fuga, pariatur molestiae labore numquam accusantium culpa, expedita eos similique laborum obcaecati asperiores magni consectetur iste? Dolore magni modi fuga ut libero? Totam, sequi dignissimos voluptate quam dolore est explicabo iure sit autem cupiditate, pariatur reiciendis tempora maiores consequuntur facilis architecto reprehenderit veritatis rerum deleniti fuga.",
       icon: <FaHandHoldingMedical />,
     },
   ];
@@ -95,7 +95,7 @@ const About = () => {
                     {" "}
                     {/* Moved text content div here */}
                     <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-blue-900 lg:text-left text-center">
-                      Welcome to ProHealth Medical & Healthcare Center
+                      Welcome to MedsCraft Medical & Healthcare Center
                     </h1>
                     <p className="mt-6 text-xl leading-8 text-gray-600 sm:max-w-md lg:max-w-none lg:text-left text-center">
                       Your Partner in Health and Wellness
@@ -123,7 +123,7 @@ const About = () => {
               Who We Are
             </h2>
             <h1 className="text-2xl tracking-wide font-semibold ">
-              We have been providing services to patients for over 20 years
+              Lorem ipsum dolor, sit amet consectetur
             </h1>
             <p className="pt-4 text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio,

@@ -11,10 +11,10 @@ const ContactUs = () => {
   return (
     <>
       <section className="bg-gradient-to-br from-blue-200 to-orange-100">
-        <div className="container mx-auto px-8 md:px-32 pt-36">
+        <div className="container mx-auto px-8 md:px-32 pt-32">
           <div className="flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-1/2 mb-8 md:mb-0">
-              <h1 className="lg:text-5xl md:text-3xl text-2xl lg:text-left md:text-left text-center lg: font-bold tracking-wide text-cyan-900 mb-4">
+            <div className="w-full lg:w-1/2 md:w-1/2 mb-8 md:mb-0">
+              <h1 className="lg:text-7xl md:text-6xl text-2xl lg:text-left md:text-left text-center lg:font-bold tracking-wide text-cyan-900 mb-4">
                 Contact Us
               </h1>
               <p className="text-xl text-gray-700 text-center lg:text-left md:text-left">
