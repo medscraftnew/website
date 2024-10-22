@@ -8,28 +8,34 @@ import { FaPlus } from "react-icons/fa6";
 import { ToastContainer, toast } from "react-toastify";
 
 export default function AppointmentForm() {
+
+  const [submittedData, setSubmittedData] = useState(null); // Store submitted data
+
   const [formData, setFormData] = useState({
-    familyMemberName: "",
+    name: "",
     mobileNumber: "",
     email: "",
     age: "",
     gender: "",
     location: "",
     area: "",
-    familyMembers: [],
+    familyMembers: [], // Store family members as an array
   });
-
-  const [showFamilyForm, setShowFamilyForm] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleAddFamilyMember = () => {
-    setShowFamilyForm(true);
+  const handleFamilyMemberChange = (index, field, value) => {
+    const updatedFamilyMembers = [...formData.familyMembers];
+    updatedFamilyMembers[index] = {
+      ...updatedFamilyMembers[index],
+      [field]: value,
+    };
+    setFormData({ ...formData, familyMembers: updatedFamilyMembers });
   };
 
-  const handleAddMemberDetails = () => {
+  const handleAddFamilyMember = () => {
     setFormData({
       ...formData,
       familyMembers: [
@@ -41,34 +47,31 @@ export default function AppointmentForm() {
         },
       ],
     });
-    setShowFamilyForm(false);
   };
 
-  const handleCloseFamilyForm = () => {
-    setShowFamilyForm(false);
+  const handleRemoveFamilyMember = (index) => {
+    const updatedFamilyMembers = formData.familyMembers.filter(
+      (_, i) => i !== index
+    );
+    setFormData({ ...formData, familyMembers: updatedFamilyMembers });
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // axios
-    //   .post("", formData)
-    //   .then((response) => {
-    //     console.log(response);
-    //     // Reset form data after a successful submission
-    //     setFormData({
-    //       name: "",
-    //       mobileNumber: "",
-    //       email: "",
-    //       age: "",
-    //       location: "",
-    //       familyMembers: [],
-    //     });
-    //     // Show success toast
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     });
-    //   });
+    e.preventDefault(); 
+    setSubmittedData(formData);
+
+
+    toast.success("Thank you, your form has been submitted successfully!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
     toast.success("Thank you your form has been submitted Successfully", {
       position: "top-right",
       autoClose: 5000,
@@ -86,152 +89,144 @@ export default function AppointmentForm() {
       id="appointment"
       className="py-16 lg:py-24 relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-orange-50 opacity-50"></div>
+      <div className="absolute inset-0 opacity-50"></div>
       <div className="container mx-auto lg:px-[100px] md:px-[60px] px-2 relative z-10">
         <div className="flex flex-wrap items-center -mx-4 px-[2rem]">
-          <div className="w-full lg:w-1/2 md:w-1/2 mb-12 lg:mb-0">
+          <div className="w-full lg:w-1/2 md:w-full sm-w-full mb-12 lg:mb-0">
             {/* <h3 className="text-blue-600 font-semibold text-xl mb-2">
               BOOK AN
             </h3> */}
-            <h2 className="md:text-4xl lg:text-5xl text-xl text-center font-bold mb-8">
+            <h2 className="md:text-4xl lg:text-4xl text-xl text-center tracking-wide font-bold mb-8">
               Membership Form
             </h2>
-            <div className="bg-gradient-to-r 0 lg:p-8 md:p-8 p-2 rounded-lg shadow-lg max-w-5xl mx-auto">
+            <div className="bg-gradient-to-r 0 lg:p-8 md:p-8 p-2 rounded-lg  max-w-5xl mx-auto">
               <form
                 onSubmit={handleSubmit}
                 className="space-y-6 max-w-5xl mx-auto"
               >
                 {/* Personal Information Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Name Field */}
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Enter Your Name
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
-                    />
-                  </div>
-
-                  {/* Mobile Number Field */}
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="mobileNumber"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Enter Your Mobile Number
-                    </label>
-                    <input
-                      id="mobileNumber"
-                      name="mobileNumber"
-                      type="tel"
-                      placeholder="Mobile Number"
-                      value={formData.mobileNumber}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
-                    />
-                  </div>
-
-                  {/* Email Field */}
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Enter Your Email
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Your Email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
-                    />
-                  </div>
-
-                  {/* Age Field */}
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="age"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Enter Your Age
-                    </label>
-                    <input
-                      id="age"
-                      name="age"
-                      type="text"
-                      placeholder="Your Age"
-                      value={formData.age}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
-                    />
-                  </div>
-
-                  <div className="space-y-2 md:col-span-2">
-                    <label
-                      htmlFor="gender"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Select your Gender
-                    </label>
-                    <select
-                      id="gender"
-                      name="gender"
-                      value={formData.gender}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1 block w-full py-3 px-4 sm:py-4 sm:px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
-                    >
-                      <option value="">Select your Gender</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
-
-                  {/* Location Dropdown */}
-                  <div className="relative">
-                    {/* Area Field */}
-                    <div className="space-y-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div className="flex flex-col">
                       <label
-                        htmlFor="area"
-                        className="block text-sm font-medium text-gray-700"
+                        htmlFor="name"
+                        className="text-sm font-medium text-gray-700"
+                      >
+                        Enter Your Name
+                      </label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="mobileNumber"
+                        className="text-sm font-medium text-gray-700"
+                      >
+                        Enter Your Mobile Number
+                      </label>
+                      <input
+                        id="mobileNumber"
+                        name="mobileNumber"
+                        type="tel"
+                        placeholder="Mobile Number"
+                        value={formData.mobileNumber}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="email"
+                        className="text-sm font-medium text-gray-700"
+                      >
+                        Enter Your Email
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Your Email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="age"
+                        className="text-sm font-medium text-gray-700"
+                      >
+                        Enter Your Age
+                      </label>
+                      <input
+                        id="age"
+                        name="age"
+                        type="text"
+                        placeholder="Your Age"
+                        value={formData.age}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="gender"
+                        className="text-sm font-medium text-gray-700"
+                      >
+                        Select your Gender
+                      </label>
+                      <select
+                        id="gender"
+                        name="gender"
+                        value={formData.gender}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
+                      >
+                        <option value="">Select your Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="location"
+                        className="text-sm font-medium text-gray-700"
                       >
                         Select Your Location
                       </label>
+                      <select
+                        id="location"
+                        name="location"
+                        value={formData.location}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1 block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
+                      >
+                        <option value="">Select Location</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Hyderabad">Gurugram</option>
+                      </select>
                     </div>
-                    <select
-                      value={formData.location}
-                      name="location"
-                      onChange={handleInputChange}
-                      required
-                      className="appearance-none block w-full py-4 px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200 pr-10 mt-2"
-                    >
-                      <option value="">Select Location</option>
-                      <option value="Bangalore">Bangalore</option>
-                      <option value="Hyderabad">Gurugram</option>
-                    </select>
                   </div>
-                  <div className="space-y-2">
+                  <div className="flex flex-col">
                     <label
                       htmlFor="area"
-                      className="block text-sm font-medium text-gray-700"
+                      className="text-sm font-medium text-gray-700"
                     >
                       Enter Your Area
                     </label>
@@ -263,94 +258,106 @@ export default function AppointmentForm() {
                 </div>
 
                 {/* Conditionally Render Family Health Manager Fields */}
-                {showFamilyForm && (
-                  // Family Member : 1
-                  <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 p-4 sm:p-6 bg-gray-50 rounded-lg shadow-lg transition-all duration-300">
-                    {/* Close Button */}
-                    <button
-                      type="button"
-                      onClick={handleCloseFamilyForm}
-                      className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 focus:outline-none"
+                <div className="relative max-h-96 overflow-y-auto">
+                  {formData.familyMembers.map((member, index) => (
+                    <div
+                      key={index}
+                      className="relative grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 p-4 sm:p-6 bg-white rounded-lg shadow-lg transition-all duration-300 border border-gray-300"
                     >
-                      <AiOutlineClose className="text-xl" />
-                    </button>
+                      {/* Family Member Number */}
+                      <p className="py-6 text-center font-semibold text-lg md:col-span-2">
+                        Family Member: {index + 1}
+                      </p>
 
-                    {/* Family Member Name */}
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="familyMemberName"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Family Member Name
-                      </label>
-                      <input
-                        id="familyMemberName"
-                        name="familyMemberName"
-                        type="text"
-                        placeholder="Family Member Name"
-                        value={formData.familyMemberName}
-                        onChange={handleInputChange}
-                        required
-                        className="mt-1 block w-full py-3 px-4 sm:py-4 sm:px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
-                      />
-                    </div>
+                      {/* Family Member Name */}
+                      <div className="space-y-2">
+                        <label
+                          htmlFor={`familyMemberName-${index}`}
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Family Member Name
+                        </label>
+                        <input
+                          id={`familyMemberName-${index}`}
+                          name="familyMemberName"
+                          type="text"
+                          placeholder="Family Member Name"
+                          value={member.familyMemberName}
+                          onChange={(e) =>
+                            handleFamilyMemberChange(
+                              index,
+                              "familyMemberName",
+                              e.target.value
+                            )
+                          }
+                          required
+                          className="mt-1 block w-full py-3 px-4 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500"
+                        />
+                      </div>
 
-                    {/* Family Member Age */}
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="familyMemberAge"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Family Member Age
-                      </label>
-                      <input
-                        id="familyMemberAge"
-                        name="familyMemberAge"
-                        type="number"
-                        placeholder="Family Member Age"
-                        value={formData.familyMemberAge}
-                        onChange={handleInputChange}
-                        required
-                        className="mt-1 block w-full py-3 px-4 sm:py-4 sm:px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
-                      />
-                    </div>
+                      {/* Family Member Age */}
+                      <div className="space-y-2">
+                        <label
+                          htmlFor={`familyMemberAge-${index}`}
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Family Member Age
+                        </label>
+                        <input
+                          id={`familyMemberAge-${index}`}
+                          name="familyMemberAge"
+                          type="number"
+                          placeholder="Family Member Age"
+                          value={member.familyMemberAge}
+                          onChange={(e) =>
+                            handleFamilyMemberChange(
+                              index,
+                              "familyMemberAge",
+                              e.target.value
+                            )
+                          }
+                          required
+                          className="mt-1 block w-full py-3 px-4 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500"
+                        />
+                      </div>
 
-                    {/* Family Member Health Condition */}
-                    <div className="space-y-2 md:col-span-2">
-                      <label
-                        htmlFor="familyMemberHealthCondition"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Select your gender
-                      </label>
-                      <select
-                        id="familyMemberHealthCondition"
-                        name="familyMemberHealthCondition"
-                        value={formData.familyMemberHealthCondition}
-                        onChange={handleInputChange}
-                        required
-                        className="mt-1 block w-full py-3 px-4 sm:py-4 sm:px-5 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500 outline-none transition-all duration-200"
-                      >
-                        <option value="">Select Your Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
+                      {/* Family Member Health Condition */}
+                      <div className="space-y-2 md:col-span-2">
+                        <label
+                          htmlFor={`familyMemberHealthCondition-${index}`}
+                          className="block text-sm font-medium text-gray-700"
+                        >
+                          Health Condition
+                        </label>
+                        <input
+                          id={`familyMemberHealthCondition-${index}`}
+                          name="familyMemberHealthCondition"
+                          type="text"
+                          placeholder="Health Condition"
+                          value={member.familyMemberHealthCondition}
+                          onChange={(e) =>
+                            handleFamilyMemberChange(
+                              index,
+                              "familyMemberHealthCondition",
+                              e.target.value
+                            )
+                          }
+                          required
+                          className="mt-1 block w-full py-3 px-4 rounded-xl border border-black shadow-md focus:border-blue-500 focus:ring-blue-500"
+                        />
+                      </div>
 
-                    {/* Add Member Details Button */}
-                    <div className="flex justify-end col-span-1 md:col-span-2 mt-4">
+                      {/* Remove Family Member Button */}
                       <button
                         type="button"
-                        onClick={handleAddMemberDetails}
-                        className="bg-blue-600 text-white py-2 px-6 sm:py-3 sm:px-10 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center gap-2 md:text-2xl text-sm transition-all duration-200"
+                        onClick={() => handleRemoveFamilyMember(index)}
+                        className="absolute top-3 right-3 text-gray-400 hover:text-red-500 focus:outline-none"
                       >
-                        Add Member Details
-                        <GoArrowRight className="text-xl transition-transform duration-300 ease-in-out transform group-hover:translate-x-2" />
+                        <AiOutlineClose className="text-xl" />
                       </button>
                     </div>
-                  </div>
-                )}
+                  ))}
+                </div>
 
                 {/* Submit Button */}
                 <div className="group mt-6">
@@ -374,9 +381,33 @@ export default function AppointmentForm() {
                 progress={undefined}
                 theme="light"
               />
+              {submittedData && (
+          <div className="mt-10">
+            <h3 className="text-2xl font-bold mb-4">Submitted Data:</h3>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <p><strong>Name:</strong> {submittedData.name}</p>
+              <p><strong>Mobile Number:</strong> {submittedData.mobileNumber}</p>
+              <p><strong>Email:</strong> {submittedData.email}</p>
+              <p><strong>Age:</strong> {submittedData.age}</p>
+              <p><strong>Gender:</strong> {submittedData.gender}</p>
+              <p><strong>Address:</strong> {submittedData.address}</p>
+              <p><strong>Area:</strong> {submittedData.area}</p>
+              <p><strong>Family Members:</strong></p>
+              <ul>
+                {submittedData.familyMembers.map((member, index) => (
+                  <li key={index}>
+                    <p><strong>Family Member Name:</strong> {member.familyMemberName}</p>
+                    <p><strong>Family Member Age:</strong> {member.familyMemberAge}</p>
+                    <p><strong>Health Condition:</strong> {member.familyMemberHealthCondition}</p>
+                  </li>
+                ))}
+              </ul>
+              </div>
+          </div>
+          )}
             </div>
           </div>
-          <div className="w-full lg:w-1/2 px-4 flex justify-center ">
+          <div className="w-full lg:w-1/2 md:w-full px-4 flex justify-center ">
             <img
               //   src="/placeholder.svg?height=600&width=600"AppointmentForm
               src={appointmentImage}

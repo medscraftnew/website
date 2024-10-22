@@ -16,7 +16,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import FloatingCallIcon from "./components/FloatingCallIcon";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
-import PackageDetails from "./pages/PackageDetails/PackageDetails";
 
 
 
@@ -34,7 +33,6 @@ function App() {
             <Route path="/LabTest" element={<LabTest />} />
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/CreateAbha" element={<ABHA />} />
-            <Route path="/PackageDetails" element={<PackageDetails />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
 

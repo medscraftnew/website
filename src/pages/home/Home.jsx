@@ -282,7 +282,7 @@ export default function Home() {
       {/* <CarouselComponent /> */}
 
       {/* booking section */}
-      <section id="form-section">
+      <section id="form-section" className="bg-white">
         <AppointmentForm />
       </section>
 

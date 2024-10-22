@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition duration-300 ${
+        className={`fixed top-0 w-full z-50 transition duration-200 ${
           scrolling ? "bg-white" : "bg-transparent"
         } border-gray-200 dark:bg-gray-900 lg:py-3 md:py-2 py-3 px-4 pr-6`}
       >
@@ -157,7 +157,7 @@ const Header = () => {
                 </NavLink>
               </li>
               <div>
-                {/* <BookATestButton /> */}
+                <BookATestButton />
             </div>
             </ul>
           </div>

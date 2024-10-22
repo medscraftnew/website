@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap'); /* Secondary */
 /* fonts */
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,3 +19,4 @@ html {
 
 
 @import 'flowbite';
+

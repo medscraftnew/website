@@ -6,7 +6,7 @@ const BookATestButton = () => {
     const navigate = useNavigate();
 
     function handleNavigate() {
-      navigate("/PackageDetails")
+      navigate("/LabTest");
     }
 
       return (

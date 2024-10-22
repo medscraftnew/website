@@ -39,14 +39,14 @@ const Footer = () => {
       </h2>
       <ul className="text-gray-500 dark:text-gray-400 font-medium">
         <li className="mb-4">
-          <a href="/about" className="hover:underline">
+          <Link to="/about" className="hover:underline">
             About Us
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/services" className="hover:underline">
+          <Link to="/OurServices" className="hover:underline">
             Our Services
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
